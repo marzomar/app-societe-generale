@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuestionnaireController!{% endblock %}
+
+{% block body %}
+<div>
+    <h1>
+        {{ currentCombinaison.question.text }}
+    </h1>
+
+    {% if currentCombinaison.associations|length <= 0 %}
+    <div>
+        <form method="POST" action="">
+            {% for choice in currentCombinaison.nextChoices %}
+                <button
+                    type="submit"
+                    name="choice"
+                    value="{{ choice.id }}"
+                    class="btn btn-primary"
+                >
+                    {{ choice.text }}
+                </button><br>
+            {% endfor %}
+        </form>
+    </div>
+    {% else %}
+        <div class="my-4">
+            {% for asso in currentCombinaison.associations %}
+                <div class="my-4">
+                    <h3>{{ asso.name }}</h3>
+                    <p>{{ asso.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <a class="btn btn-secondary" href="{{ path('app_questionnaire_reset') }}">Recommencer</a>
+        </div>
+    {% endif %}
+
+    {# {{ dump() }} #}
+</div>
+{% endblock %}

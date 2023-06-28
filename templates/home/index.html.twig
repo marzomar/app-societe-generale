@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Page d'accueil</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <p>Bonjour {{ app.user.email }}</p>
+                <a href="{{ path('app_logout') }}" class="btn btn-primary">Se déconnecter</a><br>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="btn btn-primary">Se connecter</a><br>
+                {# <a href="{{ path('app_register') }}" class="btn btn-primary">S'inscrire</a><br> #}  
+            {% endif %}
+            <a href="{{ path('app_questionnaire') }}" class="btn btn-primary">Questionnaire</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

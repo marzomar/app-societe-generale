@@ -1,0 +1,45 @@
+Créer une entité :
+    symfony console make:entity
+
+Créer la base de données :
+    symfony console doctrine:database:create
+
+Créer une migration :
+    symfony console make:migration
+
+Mettre à jour la base de données :
+    symfony console doctrine:migrations:migrate
+
+Installer le package pour les fixtures :
+    composer require orm-fixtures --dev
+
+Créer une fixture :
+    symfony console make:fixtures
+
+Charger les fixtures :
+    symfony console doctrine:fixtures:load
+
+Créer un controller :
+    symfony console make:controller
+
+Créer un formulaire :
+    symfony console make:form
+
+Créer un utilisateur :
+    symfony console make:user
+
+Installer EasyAdmin :
+    symfony composer req "admin:^4"
+
+Créer le admin dashboard :
+    symfony console make:admin:dashboard
+
+Créer le admin CRUD :
+    symfony console make:admin:crud
+
+Créer un CRUD :
+    symfony console make:crud
+
+Créer un service :
+    symfony console make:service
+
